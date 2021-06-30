@@ -3,6 +3,7 @@ package com.Maximum_Depth_of_Binary_Tree;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		TreeNode root = new TreeNode(3);
 		TreeNode sec = new TreeNode(9);
 		TreeNode third = new TreeNode(20);
