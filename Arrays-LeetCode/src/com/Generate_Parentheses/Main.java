@@ -11,24 +11,25 @@ public class Main {
 		System.out.println(list);
 	}
 	public static List<String> generateParenthesis(int n) {
-		List<String> list = new ArrayList<>();
-		generate(0,0,n,list,new StringBuilder());
-		return list;
-	}
-	public static void generate(int openN, int closeN, int n, List<String> list, StringBuilder sb) {
-		if(openN == n && closeN == n) {
-			list.add(sb.toString());
-		}
-		if(openN < n) {
-			sb.append("(");
-			generate(openN + 1, closeN, n, list, sb);
-			sb.deleteCharAt(sb.length() - 1);
-		}
-		if(closeN < openN) {
-			sb.append(")");
-			generate(openN, closeN + 1, n, list, sb);
-			sb.deleteCharAt(sb.length() - 1);
-		}
-	}
+       List<String> list = new ArrayList<>();
+        int openCount = n;
+        int closeCount = n;
+        solve(openCount , closeCount , "" , list);
+        
+        return list;
+    }
+    private static void solve(int openCount , int closeCount , String output , List<String> list) {
+        if(openCount==0 && closeCount==0){
+            list.add(output );
+            return;
+        }
+        
+        if(openCount!=0)
+            solve(openCount-1 , closeCount , output+"(" , list);
+        
+        if(closeCount > openCount)
+           solve(openCount , closeCount-1 , output+")" , list);
+        
+    }
 
 }
