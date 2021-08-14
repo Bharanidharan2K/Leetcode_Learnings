@@ -17,7 +17,8 @@ public class Main1 {
 			if(map.containsKey(i)) {
 				count = Math.max(count, map.get(i));
 				map.put(i, map.get(i)+1);
-				if(map.get(i) > count) ans = i;
+				if(map.get(i) > count) 
+					ans = i;
 			}
 			else {
 				map.put(i, 1);
